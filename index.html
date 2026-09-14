@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValueSense — Find the product from the reel</title>
+<meta name="description" content="Enter the code from a ValueSense reel and get the product, the price, and the link in one search.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise-layer" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 16 L14 12 C14 7.6 17.6 4 22 4 L26 4 C30.4 4 34 7.6 34 12 L34 16" stroke="url(#bagGrad)" stroke-width="3.2" stroke-linecap="round"/>
+          <rect x="8" y="16" width="32" height="26" rx="6" fill="#0d1220" stroke="url(#bagGrad)" stroke-width="3.2"/>
+          <circle cx="24" cy="27" r="4.5" fill="none" stroke="url(#bagGrad)" stroke-width="2.4"/>
+          <defs>
+            <linearGradient id="bagGrad" x1="8" y1="4" x2="40" y2="42" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6fa8ff"/>
+              <stop offset="1" stop-color="#2f6ff2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-word">Value<span class="brand-accent">Sense</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="#lookup">Find a product</a>
+      <a href="#how">How it works</a>
+      <a href="#trending">Trending picks</a>
+    </nav>
+    <a class="header-cta" href="https://instagram.com/TheValueSense" target="_blank" rel="noopener">Follow the reels</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="lookup">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-kicker">Saw a code in a reel?</p>
+      <h1 class="hero-title">Type the code.<br>Get the product.</h1>
+      <p class="hero-sub">Drop the product code below and we'll pull up the exact product, the price, and the link — no scrolling through comments to find it.</p>
+
+      <form class="lookup-form" id="lookupForm" autocomplete="off">
+        <label class="visually-hidden" for="productId">Product code</label>
+        <input
+          type="text"
+          id="productId"
+          name="productId"
+          placeholder="Enter the code, e.g. 4"
+          inputmode="numeric"
+        >
+        <button type="submit">
+          <span>Find it</span>
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M9 3a6 6 0 104.472 10.028l3.25 3.25a1 1 0 001.414-1.414l-3.25-3.25A6 6 0 009 3zm-4 6a4 4 0 118 0 4 4 0 01-8 0z" fill="currentColor"/></svg>
+        </button>
+      </form>
+      <p class="hero-hint" id="lookupHint">Enter the product code and get the deal.</p>
+    </div>
+  </section>
+
+  <section class="result-section" id="resultSection" hidden>
+    <div class="result-card" id="resultCard"></div>
+  </section>
+
+  <section class="empty-state" id="emptyState" hidden>
+    <div class="empty-inner">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="27" cy="27" r="16" stroke="currentColor" stroke-width="3"/><path d="M38.5 38.5 L52 52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M20 27h14M27 20v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/></svg>
+      <h3>No match for that code</h3>
+      <p>Double-check the code shown at the end of the reel — it's usually a single number in the corner of the last frame.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <h2>Three steps from reel to receipt</h2>
+    <div class="how-steps">
+      <article class="how-step">
+        <span class="how-num">1</span>
+        <h3>Watch the reel</h3>
+        <p>Every product we cover gets its own short reel on Instagram, with a code shown near the end.</p>
+      </article>
+      <article class="how-step">
+        <span class="how-num">2</span>
+        <h3>Note the code</h3>
+        <p>It's a short number, usually one or two digits, sitting quietly in the corner of the last few frames.</p>
+      </article>
+      <article class="how-step">
+        <span class="how-num">3</span>
+        <h3>Search it here</h3>
+        <p>Type it into the box above and we'll bring up the product, the price, and the link straight away.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="trending" id="trending">
+    <div class="trending-head">
+      <h2>Currently featured</h2>
+      <p>A running list of what's live on the channel right now — tap any card to open it.</p>
+    </div>
+    <div class="trending-grid" id="trendingGrid"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-word small">Value<span class="brand-accent">Sense</span></span>
+      <p>Better products. Smarter choices. Everyday value.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/TheValueSense" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+      <a href="#how">How it works</a>
+    </div>
+  </div>
+  <p class="footer-disclaimer">ValueSense may earn a commission from purchases made through links on this site. Prices and availability are set by the retailer and can change at any time.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
