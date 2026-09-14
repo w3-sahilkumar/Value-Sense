@@ -183,7 +183,7 @@ const PRODUCTS = {
     name: "Trendy Men Formal Shirt",
     category: "Fashion",
     icon: "box",
-    image: "beige.jpeg",
+    image: "images/beige.jpeg",
     tagline: "Premium Everyday Wear.",
     price: 257,
     originalPrice: 302,
