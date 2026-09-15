@@ -222,7 +222,7 @@ const PRODUCTS = {
     name: "Trendy Men Formal Shirt",
     category: "Fashion",
     icon: "box",
-    image: "images/beige.jpeg",
+    image: "beige.jpeg",
     tagline: "Premium Everyday Wear.",
     price: 257,
     originalPrice: 302,
@@ -240,14 +240,14 @@ const PRODUCTS = {
   {
     label: "Beige",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10715702?p_id=657894314&ext_id=avoyi2&utm_source=instagram_stories",
-    image: "images/beige.jpeg",
+    image: "beige.jpeg",
     price: 257,
     originalPrice: 302
   },
   {
     label: "Blue",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10716132?p_id=657894315&ext_id=avoyi3&utm_source=instagram_stories",
-    image: "images/blue.jpeg",
+    image: "blue.jpeg",
     price: 293,          // this one costs more
     originalPrice: 308
   }
@@ -266,7 +266,7 @@ const PRODUCTS = {
       {
         name: "8 Ball Dice Charm Keychain",
         icon: "box",
-        image: "images/8ball.jpeg",
+        image: "8ball.jpeg",
         tagline: "Anime Keychains",
         price: 218,
         originalPrice: 251,
@@ -278,12 +278,12 @@ const PRODUCTS = {
           "Premium Material Keychain",
           "Anime Keychains"
         ],
-        affiliateLink: "https://example.com/moon-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10777018?p_id=646350972&ext_id=aotjlo&utm_source=instagram_stories"
       },
       {
         name: "Trendy Bottle Keychain (2 Set)",
         icon: "box",
-        image: "images/bottle.jpeg",
+        image: "bottle.jpeg",
         tagline: "A little sparkle for your keys or bag.",
         price: 89,
         originalPrice: 135,
@@ -295,12 +295,12 @@ const PRODUCTS = {
           "Stylish Set of 2 Keychains",
           "Great as a cool gift"
         ],
-        affiliateLink: "https://example.com/star-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10776727?p_id=604880776&ext_id=a04ozs&utm_source=instagram_stories"
       },
       {
         name: "Spider-Man Keychain (2 Set)",
         icon: "box",
-        image: "images/spiderman.jpeg",
+        image: "spiderman.jpeg",
         tagline: "Modern Spider-Man.",
         price: 173,
         originalPrice: 203,
@@ -312,12 +312,12 @@ const PRODUCTS = {
           "Pack Of 2",
           "Aesthetic Silicon Keychains"
         ],
-        affiliateLink: "https://example.com/heart-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10777018?p_id=782420666&ext_id=cxtzne&utm_source=instagram_stories"
       },
       {
         name: "Skeleton Keychain",
         icon: "box",
-        image: "images/skeleton.jpeg",
+        image: "skeleton.jpeg",
         tagline: "Skeleton Keychain Cool Flexible",
         price: 99,
         originalPrice: 149,
@@ -328,12 +328,12 @@ const PRODUCTS = {
           "Flexible - lightweight",
           "White skeleton"
         ],
-        affiliateLink: "https://example.com/cloud-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10777018?p_id=557058521&ext_id=97np3t&utm_source=instagram_stories"
       },
       {
         name: "Spider-Man Spinner Keychain",
         icon: "box",
-        image: "images/spinner.jpeg",
+        image: "spinner.jpeg",
         tagline: "Spider-Man Spinner",
         price: 123,
         originalPrice: 165,
@@ -345,12 +345,12 @@ const PRODUCTS = {
           "360° Rotating Enamel Key Ring",
           "Premium Alloy Spider-Man"
         ],
-        affiliateLink: "https://example.com/flower-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10776727?p_id=995564301&ext_id=ggqebx&utm_source=instagram_stories"
       },
       {
         name: "Gun Keychain",
         icon: "box",
-        image: "images/gun.jpeg",
+        image: "gun.jpeg",
         tagline: "Shortgun keychain.",
         price: 232,
         originalPrice: 241,
@@ -361,12 +361,12 @@ const PRODUCTS = {
           "Premium stainless steal short gun",
           "Metal hook keychain",
         ],
-        affiliateLink: "https://example.com/sun-charm-keychain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10776727?p_id=1075704547&ext_id=hsg2xv&utm_source=instagram_stories"
       },
       {
         name: "Spider Keychain",
         icon: "box",
-        image: "images/spider.jpeg",
+        image: "spider.jpeg",
         tagline: "Spider spinner keychain.",
         price: 151,
         originalPrice: 192,
@@ -377,7 +377,7 @@ const PRODUCTS = {
           "Spider-Man Inspired Rotating Spider Keychain",
           "Spider Keychain (Black)",
         ],
-        affiliateLink: "https://example.com/sun-charm-kechain"
+        affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10777018?p_id=489183292&ext_id=838w8s&utm_source=instagram_stories"
       }
     ]
   }
