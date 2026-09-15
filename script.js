@@ -116,24 +116,116 @@ function buildResultCard(product, variantIndex) {
   `;
 }
 
-function showResult(product, variantIndex, isNewSearch = true) {
+/* ==========================================================================
+   Collections — a single code opens a browsable set of distinct products
+   (e.g. 6 keychain designs). Unlike variants, each item is its own
+   product with its own name/price/highlights/link, not just a colour
+   swap of one item.
+   ========================================================================== */
+
+function buildCollectionCard(collection, itemIndex) {
+  const total = collection.items.length;
+  const index = ((itemIndex || 0) % total + total) % total;
+  const item = collection.items[index];
+
+  const discount = item.originalPrice
+    ? Math.round(100 - (item.price / item.originalPrice) * 100)
+    : null;
+
+  const dots = collection.items.map((_, i) => `
+    <button
+      type="button"
+      class="collection-dot ${i === index ? 'active' : ''}"
+      data-index="${i}"
+      aria-label="Show item ${i + 1} of ${total}"
+    ></button>
+  `).join('');
+
+  return `
+    <div class="result-media collection-media">
+      <button type="button" class="collection-arrow collection-arrow-prev" data-dir="-1" aria-label="Previous item">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4.5L6 10l6.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      ${productMedia(item, item.name)}
+      <button type="button" class="collection-arrow collection-arrow-next" data-dir="1" aria-label="Next item">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 4.5L14 10l-6.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      ${discount ? `<span class="discount-pill">${discount}% off</span>` : ''}
+      <span class="collection-counter">${index + 1} / ${total}</span>
+    </div>
+    <div class="result-body">
+      <span class="result-category">${collection.category} · ${collection.name}</span>
+      <h2 class="result-name">${item.name}</h2>
+      <p class="result-tagline">${item.tagline}</p>
+
+      <div class="result-rating">
+        <span class="stars" aria-hidden="true">${renderStars(item.rating)}</span>
+        <span class="rating-text">${item.rating} · ${item.reviews.toLocaleString('en-IN')} reviews</span>
+      </div>
+
+      <ul class="result-highlights">
+        ${item.highlights.map(h => `<li>${h}</li>`).join('')}
+      </ul>
+
+      <div class="collection-dots" role="tablist" aria-label="Choose an item in this collection">
+        ${dots}
+      </div>
+
+      <div class="result-footer">
+        <div class="result-price">
+          <span class="price-now">${formatPrice(item.currency, item.price)}</span>
+          ${item.originalPrice ? `<span class="price-was">${formatPrice(item.currency, item.originalPrice)}</span>` : ''}
+        </div>
+        <a class="result-cta" href="${item.affiliateLink}" target="_blank" rel="noopener sponsored">
+          Get this deal
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="result-code">Code ${collection.id} · Item ${index + 1} of ${total}</p>
+    </div>
+  `;
+}
+
+function attachCollectionListeners(resultCard, collection, currentIndex) {
+  resultCard.querySelectorAll('.collection-arrow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dir = Number(btn.getAttribute('data-dir'));
+      showResult(collection, currentIndex + dir, false);
+    });
+  });
+  resultCard.querySelectorAll('.collection-dot').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = Number(btn.getAttribute('data-index'));
+      showResult(collection, index, false);
+    });
+  });
+}
+
+function showResult(product, index, isNewSearch = true) {
   const resultSection = document.getElementById('resultSection');
   const resultCard = document.getElementById('resultCard');
   const emptyState = document.getElementById('emptyState');
 
   emptyState.hidden = true;
-  resultCard.innerHTML = buildResultCard(product, variantIndex || 0);
   resultSection.hidden = false;
 
-  // Swapping a variant re-renders just the card body — attach picker
-  // listeners each time, and only replay the reveal animation on a
-  // brand-new search, not on every variant click.
-  resultCard.querySelectorAll('.variant-pill').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const index = Number(btn.getAttribute('data-variant-index'));
-      showResult(product, index, false);
+  // Swapping a variant, or flipping through a collection, re-renders just
+  // the card body — attach listeners each time, and only replay the
+  // reveal animation on a brand-new search, not on every click.
+  if (product.type === 'collection') {
+    const total = product.items.length;
+    const currentIndex = ((index || 0) % total + total) % total;
+    resultCard.innerHTML = buildCollectionCard(product, currentIndex);
+    attachCollectionListeners(resultCard, product, currentIndex);
+  } else {
+    resultCard.innerHTML = buildResultCard(product, index || 0);
+    resultCard.querySelectorAll('.variant-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const variantIndex = Number(btn.getAttribute('data-variant-index'));
+        showResult(product, variantIndex, false);
+      });
     });
-  });
+  }
 
   if (isNewSearch) {
     resultSection.classList.remove('reveal');
@@ -168,6 +260,24 @@ function handleLookup(rawValue) {
 }
 
 function buildTrendingCard(product) {
+  if (product.type === 'collection') {
+    const preview = product.items[0];
+    const lowestPrice = Math.min(...product.items.map(i => i.price));
+    return `
+      <a class="trend-card" href="#" data-code="${product.id}">
+        <div class="trend-media">${productMedia(preview, product.name)}</div>
+        <div class="trend-body">
+          <span class="trend-category">${product.category} · ${product.items.length} items</span>
+          <h3>${product.name}</h3>
+          <div class="trend-price">
+            <span>From ${formatPrice(preview.currency, lowestPrice)}</span>
+            <span class="trend-code">Code ${product.id}</span>
+          </div>
+        </div>
+      </a>
+    `;
+  }
+
   const hasVariants = product.variants && product.variants.length > 0;
   return `
     <a class="trend-card" href="#" data-code="${product.id}">
