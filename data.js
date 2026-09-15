@@ -222,7 +222,7 @@ const PRODUCTS = {
     name: "Trendy Men Formal Shirt",
     category: "Fashion",
     icon: "box",
-    image: "beige.jpeg",
+    image: "images/beige.jpeg",
     tagline: "Premium Everyday Wear.",
     price: 257,
     originalPrice: 302,
@@ -240,14 +240,14 @@ const PRODUCTS = {
   {
     label: "Beige",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10715702?p_id=657894314&ext_id=avoyi2&utm_source=instagram_stories",
-    image: "beige.jpeg",
+    image: "images/beige.jpeg",
     price: 257,
     originalPrice: 302
   },
   {
     label: "Blue",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10716132?p_id=657894315&ext_id=avoyi3&utm_source=instagram_stories",
-    image: "blue.jpeg",
+    image: "images/blue.jpeg",
     price: 293,          // this one costs more
     originalPrice: 308
   }
