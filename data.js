@@ -266,7 +266,7 @@ const PRODUCTS = {
       {
         name: "8 Ball Dice Charm Keychain",
         icon: "box",
-        image: "8ball.jpeg",
+        image: "images/8ball.jpeg",
         tagline: "Anime Keychains",
         price: 218,
         originalPrice: 251,
@@ -283,7 +283,7 @@ const PRODUCTS = {
       {
         name: "Trendy Bottle Keychain (2 Set)",
         icon: "box",
-        image: "bottle.jpeg",
+        image: "images/bottle.jpeg",
         tagline: "A little sparkle for your keys or bag.",
         price: 89,
         originalPrice: 135,
@@ -300,7 +300,7 @@ const PRODUCTS = {
       {
         name: "Spider-Man Keychain (2 Set)",
         icon: "box",
-        image: "spiderman.jpeg",
+        image: "images/spiderman.jpeg",
         tagline: "Modern Spider-Man.",
         price: 173,
         originalPrice: 203,
@@ -317,7 +317,7 @@ const PRODUCTS = {
       {
         name: "Skeleton Keychain",
         icon: "box",
-        image: "skeleton.jpeg",
+        image: "images/skeleton.jpeg",
         tagline: "Skeleton Keychain Cool Flexible",
         price: 99,
         originalPrice: 149,
@@ -333,7 +333,7 @@ const PRODUCTS = {
       {
         name: "Spider-Man Spinner Keychain",
         icon: "box",
-        image: "spinner.jpeg",
+        image: "images/spinner.jpeg",
         tagline: "Spider-Man Spinner",
         price: 123,
         originalPrice: 165,
@@ -350,7 +350,7 @@ const PRODUCTS = {
       {
         name: "Gun Keychain",
         icon: "box",
-        image: "gun.jpeg",
+        image: "images/gun.jpeg",
         tagline: "Shortgun keychain.",
         price: 232,
         originalPrice: 241,
@@ -366,7 +366,7 @@ const PRODUCTS = {
       {
         name: "Spider Keychain",
         icon: "box",
-        image: "spider.jpeg",
+        image: "images/spider.jpeg",
         tagline: "Spider spinner keychain.",
         price: 151,
         originalPrice: 192,
