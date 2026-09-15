@@ -23,6 +23,45 @@
    Each variant only needs "label" and "affiliateLink". "image", "price"
    and "originalPrice" are optional per variant — leave them out and the
    variant just falls back to the product's own image/price.
+
+   COLLECTIONS (e.g. "keychain collection" with 5-6 separate designs)
+   --------------------------------------------------------------------------
+   Use this when one code should open a browsable set of DIFFERENT products
+   (not colours of the same item — each entry has its own name, price,
+   photo and highlights). Set "type: 'collection'" and give it an "items"
+   array instead of the normal product fields. The result page shows one
+   item at a time with left/right arrows and dots to flip through them.
+
+     "9": {
+       id: "9",
+       type: "collection",
+       name: "Charm Keychain Collection",
+       category: "Accessories",
+       tagline: "Six charms, one code — pick the one you want.",
+       items: [
+         {
+           name: "Moon Charm Keychain",
+           icon: "box",
+           image: "",
+           tagline: "Soft-touch enamel, clips onto any bag.",
+           price: 149,
+           originalPrice: 199,
+           currency: "₹",
+           rating: 4.5,
+           reviews: 96,
+           highlights: [
+             "Enamel finish, won't chip with daily use",
+             "Sturdy keyring clip",
+             "Lightweight — won't weigh down your bag"
+           ],
+           affiliateLink: "https://example.com/moon-charm-keychain"
+         }
+         // ...add 4-5 more items in the same shape
+       ]
+     }
+
+   Every item needs its own "affiliateLink" — there's no picker fallback
+   here since each item is a distinct product, not a variant of one.
    ========================================================================== */
 
 const PRODUCTS = {
@@ -183,7 +222,7 @@ const PRODUCTS = {
     name: "Trendy Men Formal Shirt",
     category: "Fashion",
     icon: "box",
-    image: "images/beige.jpeg",
+    image: "beige.jpeg",
     tagline: "Premium Everyday Wear.",
     price: 257,
     originalPrice: 302,
@@ -201,17 +240,145 @@ const PRODUCTS = {
   {
     label: "Beige",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10715702?p_id=657894314&ext_id=avoyi2&utm_source=instagram_stories",
-    image: "images/beige.jpeg",
+    image: "beige.jpeg",
     price: 257,
     originalPrice: 302
   },
   {
     label: "Blue",
     affiliateLink: "https://www.meesho.com/af_invite/460511969:instagram_stories:10716132?p_id=657894315&ext_id=avoyi3&utm_source=instagram_stories",
-    image: "images/blue.jpeg",
+    image: "blue.jpeg",
     price: 293,          // this one costs more
     originalPrice: 308
   }
 ]
+  },
+
+  /* Example collection — try code "9" on the site. Swap in real items,
+     photos and links, or delete this block once you've added your own. */
+  "9": {
+    id: "9",
+    type: "collection",
+    name: "The Best Keychain Collection",
+    category: "Accessories",
+    tagline: "Six designs, one code — flip through with the arrows.",
+    items: [
+      {
+        name: "8 Ball Dice Charm Keychain",
+        icon: "box",
+        image: "images/8ball.jpeg",
+        tagline: "Anime Keychains",
+        price: 218,
+        originalPrice: 251,
+        currency: "₹",
+        rating: 4.3,
+        reviews: 9174,
+        highlights: [
+          "Aesthetic Key Chain for Women Men",
+          "Premium Material Keychain",
+          "Anime Keychains"
+        ],
+        affiliateLink: "https://example.com/moon-charm-keychain"
+      },
+      {
+        name: "Trendy Bottle Keychain (2 Set)",
+        icon: "box",
+        image: "images/bottle.jpeg",
+        tagline: "A little sparkle for your keys or bag.",
+        price: 89,
+        originalPrice: 135,
+        currency: "₹",
+        rating: 3.5,
+        reviews: 195,
+        highlights: [
+          "Trendy Bottle Keychain Combo",
+          "Stylish Set of 2 Keychains",
+          "Great as a cool gift"
+        ],
+        affiliateLink: "https://example.com/star-charm-keychain"
+      },
+      {
+        name: "Spider-Man Keychain (2 Set)",
+        icon: "box",
+        image: "images/spiderman.jpeg",
+        tagline: "Modern Spider-Man.",
+        price: 173,
+        originalPrice: 203,
+        currency: "₹",
+        rating: 4.6,
+        reviews: 114,
+        highlights: [
+          "New Spider-Man Multi Colors Characters Keychain",
+          "Pack Of 2",
+          "Aesthetic Silicon Keychains"
+        ],
+        affiliateLink: "https://example.com/heart-charm-keychain"
+      },
+      {
+        name: "Skeleton Keychain",
+        icon: "box",
+        image: "images/skeleton.jpeg",
+        tagline: "Skeleton Keychain Cool Flexible",
+        price: 99,
+        originalPrice: 149,
+        currency: "₹",
+        rating: 4.4,
+        reviews: 464,
+        highlights: [
+          "Flexible - lightweight",
+          "White skeleton"
+        ],
+        affiliateLink: "https://example.com/cloud-charm-keychain"
+      },
+      {
+        name: "Spider-Man Spinner Keychain",
+        icon: "box",
+        image: "images/spinner.jpeg",
+        tagline: "Spider-Man Spinner",
+        price: 123,
+        originalPrice: 165,
+        currency: "₹",
+        rating: 4.1,
+        reviews: 72,
+        highlights: [
+          "Spider-Man Metal Spinner Keychain",
+          "360° Rotating Enamel Key Ring",
+          "Premium Alloy Spider-Man"
+        ],
+        affiliateLink: "https://example.com/flower-charm-keychain"
+      },
+      {
+        name: "Gun Keychain",
+        icon: "box",
+        image: "images/gun.jpeg",
+        tagline: "Shortgun keychain.",
+        price: 232,
+        originalPrice: 241,
+        currency: "₹",
+        rating: 4.2,
+        reviews: 70731,
+        highlights: [
+          "Premium stainless steal short gun",
+          "Metal hook keychain",
+        ],
+        affiliateLink: "https://example.com/sun-charm-keychain"
+      },
+      {
+        name: "Spider Keychain",
+        icon: "box",
+        image: "images/spider.jpeg",
+        tagline: "Spider spinner keychain.",
+        price: 151,
+        originalPrice: 192,
+        currency: "₹",
+        rating: 4.5,
+        reviews: 76,
+        highlights: [
+          "Spider-Man Inspired Rotating Spider Keychain",
+          "Spider Keychain (Black)",
+        ],
+        affiliateLink: "https://example.com/sun-charm-kechain"
+      }
+    ]
   }
 };
