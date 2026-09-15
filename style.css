@@ -297,11 +297,17 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 260px;
+  height: 320px;        /* a bit taller to comfortably fit a contained portrait image */
+  overflow: hidden;
   border-right: 1px solid var(--border);
 }
 
-.result-media img { width: 100%; height: 100%; object-fit: cover; }
+.result-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* was cover — shows the full photo instead of cropping it */
+  padding: 20px;         /* breathing room so it doesn't touch the edges */
+}
 
 .media-icon {
   width: 96px; height: 96px;
@@ -696,7 +702,15 @@ button { font-family: inherit; cursor: pointer; }
   .site-nav { display: none; }
   .how-steps { grid-template-columns: 1fr; }
   .result-card { grid-template-columns: 1fr; }
-  .result-media { min-height: 200px; border-right: none; border-bottom: 1px solid var(--border); }
+  .result-media {
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-media img {
+    object-fit: cover;   /* crop on mobile, where a shorter box works */
+    padding: 0;
+  }
 }
 
 @media (max-width: 540px) {
